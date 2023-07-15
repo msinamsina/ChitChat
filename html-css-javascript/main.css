@@ -1,0 +1,137 @@
+:root{
+    --mobile-size: 320px;
+    --tablet-size: 768px;
+    --desktop-size: 1024px;
+    --primary-color: #3f3f42;
+    --secondary-color: #bfd9e7;
+    --third-color: #dbc3ff;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--primary-color);
+}
+
+.container{
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+main{
+    padding: 0;
+    height: 100vh;
+    overflow-y: scroll;
+}
+
+main::-webkit-scrollbar{
+    width: 3px;
+    background: var(--primary-color);
+}
+
+main::-webkit-scrollbar-thumb{
+    background: var(--third-color);
+    border-radius: 5px;
+}
+
+main div{
+    color: black;
+}
+
+.res-msg span, .user-msg span{
+    position: relative;
+    padding: 5px 20px;
+}
+
+.user-msg span{
+    margin: 3px 5px 0 0;
+    padding: 15px;
+    border-radius: 15px 15px 0 15px;
+    background: var(--third-color);
+}
+
+.res-msg span{
+    margin: 3px 0 0 5px;
+    padding: 15px;
+    border-radius: 15px 15px 15px 0;
+    background: var(--secondary-color);
+}
+
+
+.res-msg span::before,
+.res-msg span::after,
+.user-msg span::before,
+.user-msg span::after{
+    content: '';
+    position: absolute;
+    top: 50%;
+    bottom: 0;
+    z-index: 1;
+}
+
+.user-msg span::after,
+.user-msg span::before{
+    right: -10px;
+    width: 10px;
+    background: var(--third-color);
+}
+
+.user-msg span::after{
+    right: -10px;
+    border-radius: 0 0 0 10px;
+    background: var(--primary-color);
+}
+
+.res-msg span::after,
+.res-msg span::before{
+    left: -10px;
+    width: 10px;
+    background: var(--secondary-color);
+}
+
+.res-msg span::after{
+    left: -10px;
+    border-radius: 0 0 10px 0;
+    background: var(--primary-color);
+}
+
+.res-msg, .user-msg{
+    display: flex;
+    justify-content: flex-start;
+    align-items: start;
+    padding: 0;
+    margin: 5px;
+    border-radius: 10px;
+}
+
+.res-msg img, .user-msg img{
+    object-fit: cover;
+    height: 25px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    align-self: end;
+    z-index: 2;
+}
+
+.user-msg{
+    flex-direction: row-reverse;
+}
+
+.res-msg {
+    flex-direction: row;
+}
+
+@media (min-width: 768px){
+    main{
+        padding: 0 20px;
+    }
+
+    .container{
+        max-width: 768px;
+    }
+    .res-msg span, .user-msg span{
+        max-width: 40%;
+    }
+}
